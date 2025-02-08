@@ -1,0 +1,136 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background Styling */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Title Styling */
+h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #6a1b9a;
+    /* Purple */
+    margin-bottom: 20px;
+}
+
+h3 {
+    text-align: center;
+    font-size: 1.5em;
+    color: #f57c00;
+    /* Orange */
+    margin-top: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #f57c00;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Scrollable Message List */
+ul {
+    list-style-type: none;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Individual Message Styling */
+li {
+    background: #ffffff;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, background-color 0.3s;
+    position: relative;
+    border-left: 5px solid #6a1b9a;
+}
+
+/* Simplified Hover Effect */
+li:hover {
+    transform: translateY(-3px);
+}
+
+/* Username Styling */
+b {
+    color: #6a1b9a;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Date Styling - Orange Accent */
+li ul {
+    margin-top: 8px;
+    padding-left: 0;
+    font-size: 0.85em;
+    color: #555;
+    text-align: right;
+    list-style: none;
+}
+
+li .date {
+    color: #f57c00;
+    /* Orange color for date */
+    font-weight: bold;
+}
+
+/* Form Styling */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border 0.3s;
+}
+
+input[type="text"]:focus {
+    border: 2px solid #f57c00;
+    outline: none;
+}
+
+input[type="submit"] {
+    background-color: #6a1b9a;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #4a148c;
+}
