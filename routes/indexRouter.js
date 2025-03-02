@@ -1,30 +1,31 @@
-const { Router } = require("express")
-const indexRouter = Router()
+const { Router } = require("express");
+const indexRouter = Router();
+const pool = require("../db/pool"); 
 
-const messages = [
-    {
-      text: "Hi there!",
-      user: "Amando",
-      added: new Date()
-    },
-    {
-      text: "Hello World!",
-      user: "Charles",
-      added: new Date()
-    }
-  ];
-
-indexRouter.get("/", (req, res) => {
-    res.render("index", { title: "Mini Messageboard", messages: messages })
-})
+indexRouter.get("/", async (req, res, next) => {
+  try {
+    const result = await pool.query("SELECT * FROM messages ORDER BY added ASC");
+    res.render("index", { title: "Mini Messageboard", messages: result.rows });
+  } catch (err) {
+    next(err);
+  }
+});
 
 indexRouter.get("/new", (req, res) => {
-    res.render("form")
-})
+  res.render("form");
+});
 
-indexRouter.post("/new",(req, res) => {
-    const {messageText, authorsName} = req.body
-    messages.push({ text: messageText, user: authorsName, added: new Date() });
-    res.redirect("/")
-} )
-module.exports = indexRouter
+indexRouter.post("/new", async (req, res, next) => {
+  const { messageText, authorsName } = req.body;
+  try {
+    await pool.query(
+      "INSERT INTO messages (text, username) VALUES ($1, $2)",
+      [messageText, authorsName]
+    );
+    res.redirect("/");
+  } catch (err) {
+    next(err);
+  }
+});
+
+module.exports = indexRouter;
