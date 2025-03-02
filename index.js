@@ -18,7 +18,6 @@ app.use("/", indexRouter)
 
 
 
-PORT = 4040
 
 app.listen(PORT, () => {
     console.log(`App running on http://localhost:${PORT}`)
